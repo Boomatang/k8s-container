@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: foo
+data:
+  loop: "5"
+  delay: "1"
+---
+apiVersion: v1
+kind: Pod
+metadata:
+    name: config
+spec:
+  containers:
+    - command:
+        - config
+      name: container
+      image: hello:latest
+      env:
+        - name: LOOP
+          valueFrom:
+            configMapKeyRef:
+              key: loop
+              name: foo
+        - name: DELAY
+          valueFrom:
+            configMapKeyRef:
+              key: delay
+              name: foo
+  restartPolicy: Never

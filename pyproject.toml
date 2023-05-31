@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "k8s-container"
+version = "0.1.0"
+description = ""
+authors = ["Jim Fitzpatrick <jfitzpat@redhat.com>"]
+readme = "README.md"
+packages = [{include = "k8s_container"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+python-dotenv = "^1.0.0"
+
+[tool.poetry.scripts]
+basic = "k8s_container.__main__:basic"
+config = "k8s_container.__main__:config"
+secret = "k8s_container.__main__:secret"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

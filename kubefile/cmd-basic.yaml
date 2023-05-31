@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name: basic
+spec:
+  containers:
+    - command:
+        - basic
+      name: container
+      image: hello:latest
+  restartPolicy: Never
