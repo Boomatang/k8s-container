@@ -15,7 +15,7 @@ spec:
     - command:
         - config
       name: container
-      image: hello:latest
+      image: quay.io/jfitzpat/hello:latest
       env:
         - name: LOOP
           valueFrom:
